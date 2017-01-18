@@ -1,6 +1,7 @@
-Fake profile accounts in the social networking websites.
+1.Fake profile accounts in the social networking websites.
   One of the problems with Social Networking Webistes being poor user authentication mechanisms. 
-  Usually, the accounts are created with the help of an email ids. As the creation of email ids are very easy, lots of fake accounts can be created in the social networking websites that uses poor user authntication. 
+  Usually, the accounts are created with the help of an email ids. 
+  When no or poor user authentication mechanisms are used, it would be easy for the attackers to create lots of fake accounts. 
   Downside being wastages of resources on the organisation side, and user experience is greatly affected. 
   
   Solutions: 
