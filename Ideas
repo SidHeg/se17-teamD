@@ -7,5 +7,21 @@
   Solutions: 
   1. User authentication by Phone numbers
   2. Using captchas
-  3. ???
+  3. Using machine learning algorithms to find fake profiles
   
+2.	Video Aggregator: There are several Sporting event streaming, TV shows or movies streaming websites, some of them might not work,
+only a few might work. Hence, checking each link becomes tedious. 
+
+Solution:
+Finding all the relevant urls and providing a single window where the video from any of the sites can be viewed. 
+There are plenty of ways in which the web can be crawled to find the relevant links and also there different 
+options to finally display the video from these sites. 
+
+3.  Content Aggregation: Like the previous idea, news content can be aggregated from several different news websites
+(regarding the same news topics) and displayed in one page, this provides different viewpoints of the same news OR product details 
+of a product, can aggregated from several online shopping sites like amazon and ebay and can be displayed in one page for easy price
+comparison.
+
+Solution:
+Similar to the 2nd idea
+
