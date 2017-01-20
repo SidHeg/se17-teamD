@@ -36,3 +36,14 @@ Solutions:
 2. Finger print recognition
 3. Remember passwords in browsers.
 4. Doodles
+
+
+5. Cab Fare Estmation: [Idea taken]
+There are so many options available when it comes to choosing a cab service provider such as Uber, lyft, etc. 
+But, it is always difficult to find the provider who provides the cheapest option. The idea is to create an application
+to estimate the fare of different service providers in a single place. 
+
+Soltions:
+1. APIs provided by the service providers.
+2. Using Machine learning to predict the fare.
+3. 
