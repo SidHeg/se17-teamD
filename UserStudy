@@ -1,0 +1,81 @@
+
+Problem statement: 
+Person creating fake accounts, Attacker using scripts to create lot of fake profiles in social networking websites. 
+
+1. Have you or anyone you know have created a fake account on a socail networking website?
+a. Yes
+b. No
+
+2. How are fake accounts created? 1 - More likely 5-less likely
+a. Manually
+b. scripts
+
+3. Have you encountered fake accounts in any socail networks?
+a. Yes
+b. No
+
+4.Select all the websites where you have encountered fake accounts.
+a. Facebook
+b. Twitter
+c. Tinder
+d. Instagram
+e. Snapchat
+f. NA
+g. Others 
+
+5. Reason behind fake accounts creation in social networking websites? 
+a. Promoting a new product
+b. Harvesting sensitive personal information
+c. Wasting server resources
+d. Stalking people
+e. Others
+
+6. Rate the following website with respect to the ease of creating fake accounts? 1- not easy 5 - very easy
+a. Facebook
+b. Twitter
+c. Tinder
+d. Instagram
+e. Snapchat
+
+
+7. What makes you think that the account is fake?
+a. Similarity with other accounts
+b. By interacting with them
+c. Promoting new products
+d. asking you for sensitive/personal information
+e. Others
+
+8. Have you or anyone you know was affected by fake accounts on any social networking website?
+a. Yes
+b. No
+
+9. Briefly explain how you or the person you know was affected?
+
+
+10. Which of the following user authentication methods are widely used. 1- highly used 5-Never used
+a. Authentication using Phone number
+b. Text Captchas
+c. Image captchas (Select all the images that have dogs)
+d. I'm not a robot checkbox.
+
+11. Have you came across any authentication methods other than that are mentioned in question 11.
+
+
+12. Which of the following user authentication methods is most effective against fake account creation by humans? 1- very efficient, 5 - not efficient
+a. Authentication using Phone number
+b. Text Captchas
+c. Image captchas (Select all the images that have dogs)
+d. I'm not a robot checkbox.
+
+13. Which of the following user authentication methods is most effective against fake account creation by scripts? 1- very efficient, 5 - not efficient
+a. Authentication using Phone number
+b. Text Captchas
+c. Image captchas (Select all the images that have dogs)
+d. I'm not a robot checkbox.
+
+14. Which of the following user authentication methods is more convinient for you to use while creating a new account? 1- Convinient, 5 - difficult
+a. Authentication using Phone number
+b. Text Captchas
+c. Image captchas (Select all the images that have dogs)
+d. I'm not a robot checkbox.
+ 
