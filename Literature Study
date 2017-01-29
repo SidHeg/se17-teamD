@@ -9,3 +9,9 @@
  - students log into app, scan qr code, (and run a facial check) to register attendance
  - can add a location check (I suppose GPS) to ensure no fraudulent registaration (students can send qr code by email, whatsapp etc and process can be replicated outside class)
  
+QR-Code Generator by Sutheebanjard and Premchaiswadi
+[not sure much of this can be used in our project]
+
+- QR codes have large capacity, small printout size and high speed scan
+- also error correction capability (image can be recovered even if large amounts of image is damaged)
+- Libqrencode --> C library for encoding data in a Qr code symbol, qrencode (in CLI)
