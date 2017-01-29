@@ -6,6 +6,6 @@
  
  - use Quick Response(QR) code because of fast readability and greater storage capacity compared to UPS barcodes
  - Lecturer genrates QR code using information such as Course, name of lecturer, date and time of lecture, passcode etc. and display on slide
- - students scan qr code, and run a facial check to register attendance
+ - students log into app, scan qr code, (and run a facial check) to register attendance
  - can add a location check (I suppose GPS) to ensure no fraudulent registaration (students can send qr code by email, whatsapp etc and process can be replicated outside class)
  
