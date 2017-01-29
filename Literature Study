@@ -16,4 +16,4 @@ QR-Code Generator by Sutheebanjard and Premchaiswadi
 - also error correction capability (image can be recovered even if large amounts of image is damaged)
 - Libqrencode --> C library for encoding data in a Qr code symbol, qrencode (in CLI)
 
-Instead we can use http://goqr.me/api/ to generate QR codes.
+Instead we can use http://goqr.me/api/ to generate and read QR codes.
