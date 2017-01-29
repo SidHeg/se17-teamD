@@ -1,7 +1,5 @@
-- Name of the Paper 
-- Notes
 
-
+QRCode based
  A students attendance system using QR code by F Masalha, N Hirzallah
  
  - use Quick Response(QR) code because of fast readability and greater storage capacity compared to UPS barcodes
@@ -17,3 +15,32 @@ QR-Code Generator by Sutheebanjard and Premchaiswadi
 - Libqrencode --> C library for encoding data in a Qr code symbol, qrencode (in CLI)
 
 Instead we can use http://goqr.me/api/ to generate and read QR codes.
+
+
+
+NFC Based
+Mobile Attendance using Near Field Communication and One-Time Password 
+
+- Fast, unsupervised. 
+-Android application[runs on student mobile] using NFC.
+- 10 cm range. two device to communicate.
+- upgrade to RFID.
+- Fast communication - 1/10s for connection establishment.
+- NFC work even when mobile is turned off, not powered by battery. 
+
+- Near Field Communication allows for simplified transactions, data exchange, and wireless connections between two devices in proximity to each other, usually by no more than a few centimeters. 
+- NFC allows to share small payloads of data between two android-powered devies. 
+- Simple NFC tags offer just read and write semantics, sometimes one time programmable areas to make card read only.
+- More complex tags offer math operation and have cryptographic hardware.
+
+Three parts
+1. Mobile attendance
+2. Mobile mark editor
+3. mobile curriculum [Not relevent]
+
+Mobile when waived against the tag, connection established. Data exchange happens from tag to mobile. 
+On receiving the data, the software in the mobile will communicate with the server, sending the data for verification. On verification, attendance is given to the student.
+
+
+
+
