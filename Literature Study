@@ -42,5 +42,16 @@ Mobile when waived against the tag, connection established. Data exchange happen
 On receiving the data, the software in the mobile will communicate with the server, sending the data for verification. On verification, attendance is given to the student.
 
 
+GPS Based
+GPS proximity warning system for at-rest large mobile equipment
+GPS-less Low-Cost Outdoor Localization for Very Small Devices
+
+
+ - get the GPS coordinates of the device (student and professor's mobile phone).
+ - find the distance between professor's and the students' device.
+ - calculate the centroid of the students seated.
+ - approve attendance based on 2 conditions:
+  - proximity of student to professor.
+  - proximity of student to student centroid.
 
 
