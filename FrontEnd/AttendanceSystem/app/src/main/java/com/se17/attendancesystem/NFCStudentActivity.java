@@ -43,7 +43,6 @@ public class NFCStudentActivity extends AppCompatActivity {
 
     /*
         onNewIntent will be called when the NDEF message is received by the mobile from an NFC Tag.
-        Necessary registrations are made in the Manifest file.
      */
 
     public void onPause() {
@@ -69,7 +68,7 @@ public class NFCStudentActivity extends AppCompatActivity {
                 NdefMessage[] messages = new NdefMessage[rawMessages.length];
                 messages[0] = (NdefMessage) rawMessages[0];
                 NdefRecord rec = messages[0].getRecords()[0];
-                String str = new String(rec.getPayload()).substring(3);
+                String str = new String(rec.getPayload());
                 Toast.makeText(getApplicationContext(),str,Toast.LENGTH_LONG).show();
 
                 /*
