@@ -26,7 +26,7 @@ public class MainActivity extends AppCompatActivity {
                 Todo: Validate username and password, and get response from backend.
                 1 => Professor, 2=> Student, else=> Log in failed.
              */
-            int response = 1;
+            int response = 2;
             if(response == 1){
                 user = new User();
                 user.setProfessor(true);

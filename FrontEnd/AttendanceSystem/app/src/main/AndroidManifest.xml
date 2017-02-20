@@ -3,10 +3,7 @@
     package="com.se17.attendancesystem">
 
     <uses-permission android:name="android.permission.NFC" />
-
-    <uses-feature
-        android:name="android.hardware.nfc"
-        android:required="true" />
+    <uses-feature android:name="android.hardware.nfc" android:required="true" />
 
     <application
         android:allowBackup="true"
@@ -23,7 +20,14 @@
         </activity>
         <activity android:name=".ProfessorActivity" />
         <activity android:name=".StudentActivity" />
-        <activity android:name=".NFCStudentActivity" />
+        <activity android:name=".NFCStudentActivity"
+                  android:launchMode="singleInstance">
+            <intent-filter>
+                <action android:name="android.nfc.action.NDEF_DISCOVERED" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <data android:mimeType="text/plain"/>
+            </intent-filter>
+        </activity>
         <activity android:name=".NFCProfessorActivity" />
         <activity android:name=".GPSStudentActivity" />
         <activity android:name=".GPSProfessorActivity" />
