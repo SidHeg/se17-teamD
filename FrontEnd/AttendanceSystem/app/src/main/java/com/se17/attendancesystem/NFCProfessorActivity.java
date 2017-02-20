@@ -40,7 +40,7 @@ public class NFCProfessorActivity extends AppCompatActivity {
                 this, 0, new Intent(this, getClass()).addFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP), 0);
 
         IntentFilter filter = new IntentFilter(NfcAdapter.ACTION_TAG_DISCOVERED);
-        filterArray = new IntentFilter[] {filter, };
+        filterArray = new IntentFilter[] {filter,};
     }
 
     public void onPause() {
@@ -51,7 +51,7 @@ public class NFCProfessorActivity extends AppCompatActivity {
     @Override
     protected void onResume() {
         super.onResume();
-        nfcAdapter.enableForegroundDispatch(this, pendingIntent, filterArray, null);
+        nfcAdapter.enableForegroundDispatch(this,pendingIntent,filterArray,null);
 
     }
 

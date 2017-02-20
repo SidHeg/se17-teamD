@@ -32,11 +32,10 @@ public class NFCStudentActivity extends AppCompatActivity {
 
         IntentFilter filter = new IntentFilter(NfcAdapter.ACTION_NDEF_DISCOVERED);
         try {
-            filter.addDataType("*/*");    /* Handles all MIME based dispatches.
-                                       You should specify only the ones that you need. */
+            filter.addDataType("text/plain");
         }
-        catch (IntentFilter.MalformedMimeTypeException e) {
-            throw new RuntimeException("fail", e);
+        catch (IntentFilter.MalformedMimeTypeException ex) {
+            throw new RuntimeException("MalformedMimeTypeException", ex);
         }
         filterArray = new IntentFilter[] {filter, };
     }
@@ -52,7 +51,7 @@ public class NFCStudentActivity extends AppCompatActivity {
 
     public void onResume() {
         super.onResume();
-        nfcAdapter.enableForegroundDispatch(this, pendingIntent, filterArray, null);
+        nfcAdapter.enableForegroundDispatch(this,pendingIntent,filterArray, null);
     }
 
     @Override
