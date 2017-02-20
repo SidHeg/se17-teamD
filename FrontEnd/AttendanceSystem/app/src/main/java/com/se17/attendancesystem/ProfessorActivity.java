@@ -1,5 +1,6 @@
 package com.se17.attendancesystem;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -29,6 +30,8 @@ public class ProfessorActivity extends AppCompatActivity {
         @Override
         public void onClick(View v) {
 
+            Intent intent = new Intent(getBaseContext(), NFCProfessorActivity.class);
+            startActivity(intent);
         }
     };
 
@@ -36,6 +39,8 @@ public class ProfessorActivity extends AppCompatActivity {
         @Override
         public void onClick(View v) {
 
+            Intent intent = new Intent(getBaseContext(), GPSProfessorActivity.class);
+            startActivity(intent);
         }
     };
 
@@ -43,7 +48,8 @@ public class ProfessorActivity extends AppCompatActivity {
     private View.OnClickListener btnQRCodeOnclickListener = new View.OnClickListener() {
         @Override
         public void onClick(View v) {
-
+            Intent intent = new Intent(getBaseContext(), QRProfessorActivity.class);
+            startActivity(intent);
         }
     };
 }
