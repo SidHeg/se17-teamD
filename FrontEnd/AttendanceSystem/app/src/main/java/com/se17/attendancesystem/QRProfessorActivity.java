@@ -32,6 +32,9 @@ public class QRProfessorActivity extends AppCompatActivity {
             @Override
             public void onClick(View v){
                 String qrText = qrInput.getText().toString();
+                /*
+                    store text in back end database
+                */
                 MultiFormatWriter multiFormatWriter = new MultiFormatWriter();
                 try {
                     BitMatrix bitMatrix = multiFormatWriter.encode(qrText, BarcodeFormat.QR_CODE,200,200);
