@@ -49,5 +49,4 @@ public class QRProfessorActivity extends AppCompatActivity {
             }
         });
     }
-
 }
