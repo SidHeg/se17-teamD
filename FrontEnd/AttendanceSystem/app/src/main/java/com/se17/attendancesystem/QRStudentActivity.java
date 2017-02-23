@@ -1,10 +1,10 @@
 package com.se17.attendancesystem;
 
-import android.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.Toast;
 
 import com.google.zxing.Result;
 import me.dm7.barcodescanner.zxing.ZXingScannerView;
@@ -44,10 +44,11 @@ public class QRStudentActivity extends AppCompatActivity implements ZXingScanner
             send to backend to compare and register attendance
         */
 
-        AlertDialog.Builder builder = new AlertDialog.Builder(this);
-        builder.setTitle("Scan result");
-        builder.setMessage(result.getText());
-        AlertDialog alertDialog = builder.create();
-        alertDialog.show();
+        if(result!=null){
+            Toast.makeText(getApplicationContext(),result.getText(),Toast.LENGTH_LONG).show();
+        }
+        else{
+            Toast.makeText(getApplicationContext(),"QR Code was not scanned!",Toast.LENGTH_LONG).show();
+        }
     }
 }

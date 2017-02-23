@@ -41,7 +41,9 @@
         android:layout_alignStart="@+id/input"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true"
-        android:layout_alignParentBottom="true" />
+        android:layout_alignParentBottom="true"
+        android:adjustViewBounds="false"
+        android:cropToPadding="false" />
 
     <Button
         android:text="Generate QR Code"

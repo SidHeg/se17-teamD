@@ -7,6 +7,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.view.View;
+import android.widget.Toast;
 
 import com.google.zxing.BarcodeFormat;
 import com.google.zxing.MultiFormatWriter;
@@ -32,22 +33,28 @@ public class QRProfessorActivity extends AppCompatActivity {
             @Override
             public void onClick(View v){
                 String qrText = qrInput.getText().toString();
-                /*
-                    store text in back end database
-                */
-                MultiFormatWriter multiFormatWriter = new MultiFormatWriter();
-                try {
-                    BitMatrix bitMatrix = multiFormatWriter.encode(qrText, BarcodeFormat.QR_CODE,200,200);
-                    BarcodeEncoder barcodeEncoder = new BarcodeEncoder();
-                    Bitmap bitmap = barcodeEncoder.createBitmap(bitMatrix);
+                qrImg = (ImageView) findViewById(R.id.imageView);
 
-                    qrImg = (ImageView) findViewById(R.id.imageView);
-                    qrImg.setImageBitmap(bitmap);
-                } catch (WriterException e) {
-                    e.printStackTrace();
+                if(qrText == null || qrText.length() == 0){
+                    Toast.makeText(getApplicationContext(),"No Text Entered!!",Toast.LENGTH_LONG).show();
+                    qrImg.setImageResource(0);
+                }
+                else{
+                    /*
+                    store text in back end database
+                    */
+                    MultiFormatWriter multiFormatWriter = new MultiFormatWriter();
+                    try {
+                        int minDimension = Math.min(qrImg.getWidth(), qrImg.getHeight());
+                        BitMatrix bitMatrix = multiFormatWriter.encode(qrText, BarcodeFormat.QR_CODE,minDimension,minDimension);
+                        BarcodeEncoder barcodeEncoder = new BarcodeEncoder();
+                        Bitmap bitmap = barcodeEncoder.createBitmap(bitMatrix);
+                        qrImg.setImageBitmap(bitmap);
+                    } catch (WriterException e) {
+                        e.printStackTrace();
+                    }
                 }
             }
         });
     }
-
 }
