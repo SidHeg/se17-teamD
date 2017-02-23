@@ -7,6 +7,7 @@ package com.se17.attendancesystem;
 public class User {
 
     private String userId;
+    private String password;
     private boolean isProfessor;
     private boolean isStudent;
 
@@ -38,5 +39,13 @@ public class User {
 
     public void setStudent(boolean student) {
         isStudent = student;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
     }
 }

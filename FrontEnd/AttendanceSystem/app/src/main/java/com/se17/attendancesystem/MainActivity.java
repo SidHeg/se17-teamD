@@ -13,14 +13,18 @@ public class MainActivity extends AppCompatActivity {
     private EditText userId;
     private EditText password;
     private Button btnSignIn;
-    public User user;
+    public static User user;
 
     private View.OnClickListener signInOnClickListener =  new View.OnClickListener() {
         @Override
         public void onClick(View v) {
+
             //user.setUserId(userId.getText().toString());
             String userIdEntered = userId.getText().toString();
             String passwordEntered = password.getText().toString();
+
+           // ServerComm serverComm = new ServerComm();
+            //serverComm.execute("0",userIdEntered,passwordEntered);
 
             /*
                 Todo: Validate username and password, and get response from backend.
@@ -29,6 +33,8 @@ public class MainActivity extends AppCompatActivity {
             int response = 2;
             if(response == 1){
                 user = new User();
+                user.setUserId(userIdEntered);
+                user.setPassword(passwordEntered);
                 user.setProfessor(true);
                 Intent intent = new Intent(getBaseContext(), ProfessorActivity.class);
                 startActivity(intent);
@@ -36,6 +42,8 @@ public class MainActivity extends AppCompatActivity {
             }else if(response == 2){
                 user = new User();
                 user.setStudent(true);
+                user.setUserId(userIdEntered);
+                user.setPassword(passwordEntered);
                 Intent intent = new Intent(getBaseContext(), StudentActivity.class);
                 startActivity(intent);
 

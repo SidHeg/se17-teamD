@@ -1,6 +1,5 @@
 package com.se17.attendancesystem;
 
-import android.content.Context;
 import android.content.pm.PackageManager;
 import android.location.Location;
 import android.location.LocationListener;
@@ -26,8 +25,13 @@ public class GPSStudentActivity extends AppCompatActivity implements LocationLis
         setContentView(R.layout.activity_gpsstudent);
         btnGPS = (Button) findViewById(R.id.btnGPSStud);
         btnGPS.setOnClickListener(btnGPSListener);
-        locationManager = (LocationManager) getApplicationContext().getSystemService(LOCATION_SERVICE);
 
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        locationManager = (LocationManager) getApplicationContext().getSystemService(LOCATION_SERVICE);
     }
 
     private Location getCurrentLocation(){
@@ -56,6 +60,9 @@ public class GPSStudentActivity extends AppCompatActivity implements LocationLis
         public void onClick(View v) {
 
             getCurrentLocation();
+            //ServerComm serverComm = new ServerComm();
+            //serverComm.execute("2",MainActivity.user.getUserId(),MainActivity.user.getPassword(),payload);
+
 
         }
     };

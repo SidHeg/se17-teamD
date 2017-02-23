@@ -25,6 +25,11 @@ public class GPSProfessorActivity extends AppCompatActivity implements LocationL
         setContentView(R.layout.activity_gpsprofessor);
         btnGPS = (Button) findViewById(R.id.btnGPSProf);
         btnGPS.setOnClickListener(btnGPSListener);
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
         locationManager = (LocationManager) getApplicationContext().getSystemService(LOCATION_SERVICE);
     }
 
@@ -53,6 +58,9 @@ public class GPSProfessorActivity extends AppCompatActivity implements LocationL
         public void onClick(View v) {
 
            getCurrentLocation();
+            //ServerComm serverComm = new ServerComm();
+            //serverComm.execute("2",MainActivity.user.getUserId(),MainActivity.user.getPassword(),payload);
+
 
         }
     };
