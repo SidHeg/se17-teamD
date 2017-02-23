@@ -26,7 +26,27 @@ public class GPSStudentActivity extends AppCompatActivity implements LocationLis
         setContentView(R.layout.activity_gpsstudent);
         btnGPS = (Button) findViewById(R.id.btnGPSStud);
         btnGPS.setOnClickListener(btnGPSListener);
-        locationManager = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
+        locationManager = (LocationManager) getApplicationContext().getSystemService(LOCATION_SERVICE);
+
+    }
+
+    private Location getCurrentLocation(){
+
+        if ( Build.VERSION.SDK_INT >= 23 &&
+                ContextCompat.checkSelfPermission( getApplicationContext(), android.Manifest.permission.ACCESS_FINE_LOCATION ) != PackageManager.PERMISSION_GRANTED &&
+                ContextCompat.checkSelfPermission( getApplicationContext(), android.Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
+            return null ;
+        }
+        Location location = locationManager.getLastKnownLocation(LocationManager.NETWORK_PROVIDER);
+        if(location==null){
+            Toast.makeText(getApplicationContext(), "Enable GPS and try again", Toast.LENGTH_LONG).show();
+        }else {
+            latitude = location.getLatitude();
+            longitude = location.getLongitude();
+            Toast.makeText(getApplicationContext(), "" + latitude + "," + longitude, Toast.LENGTH_LONG).show();
+        }
+
+        return location;
 
     }
 
@@ -34,19 +54,8 @@ public class GPSStudentActivity extends AppCompatActivity implements LocationLis
     private View.OnClickListener btnGPSListener = new View.OnClickListener() {
         @Override
         public void onClick(View v) {
-            if ( Build.VERSION.SDK_INT >= 23 &&
-                    ContextCompat.checkSelfPermission( getApplicationContext(), android.Manifest.permission.ACCESS_FINE_LOCATION ) != PackageManager.PERMISSION_GRANTED &&
-                    ContextCompat.checkSelfPermission( getApplicationContext(), android.Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
-                return  ;
-            }
-            Location location = locationManager.getLastKnownLocation(LocationManager.NETWORK_PROVIDER);
-            if(location==null){
-                Toast.makeText(getApplicationContext(), "Enable GPS and try again", Toast.LENGTH_LONG).show();
-            }else {
-                latitude = location.getLatitude();
-                longitude = location.getLongitude();
-                Toast.makeText(getApplicationContext(), "" + location.getLatitude() + "," + location.getLongitude(), Toast.LENGTH_LONG).show();
-            }
+
+            getCurrentLocation();
 
         }
     };
@@ -55,21 +64,22 @@ public class GPSStudentActivity extends AppCompatActivity implements LocationLis
     @Override
     public void onProviderEnabled(String provider) {
 
+        getCurrentLocation();
     }
 
     @Override
     public void onProviderDisabled(String provider) {
-
+        getCurrentLocation();
     }
 
     @Override
     public void onLocationChanged(Location location) {
 
-        Toast.makeText(getApplicationContext(),""+location.getLatitude()+","+location.getLongitude(),Toast.LENGTH_LONG).show();
+        getCurrentLocation();
     }
 
     @Override
     public void onStatusChanged(String provider, int status, Bundle extras) {
-
+        getCurrentLocation();
     }
 }
