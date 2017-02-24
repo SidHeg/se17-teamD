@@ -67,11 +67,10 @@ public class NFCStudentActivity extends AppCompatActivity {
                 NdefMessage[] messages = new NdefMessage[rawMessages.length];
                 messages[0] = (NdefMessage) rawMessages[0];
                 NdefRecord rec = messages[0].getRecords()[0];
-                String str = new String(rec.getPayload());
-                Toast.makeText(getApplicationContext(),str,Toast.LENGTH_LONG).show();
-                //ServerComm serverComm = new ServerComm();
-                //serverComm.execute("1",MainActivity.user.getUserId(),MainActivity.user.getPassword(),payload);
-
+                payload = new String(rec.getPayload());
+                Toast.makeText(getApplicationContext(),payload,Toast.LENGTH_LONG).show();
+                ServerComm serverComm = new ServerComm();
+                serverComm.execute("1",MainActivity.user.getUserId(),MainActivity.user.getPassword(),payload);
 
                 /*
                     Todo:

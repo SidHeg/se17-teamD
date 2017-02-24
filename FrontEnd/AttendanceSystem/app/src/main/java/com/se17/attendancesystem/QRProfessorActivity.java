@@ -50,6 +50,9 @@ public class QRProfessorActivity extends AppCompatActivity {
                         BarcodeEncoder barcodeEncoder = new BarcodeEncoder();
                         Bitmap bitmap = barcodeEncoder.createBitmap(bitMatrix);
                         qrImg.setImageBitmap(bitmap);
+                        ServerComm serverComm = new ServerComm();
+                        serverComm.execute("3",MainActivity.user.getUserId(),MainActivity.user.getPassword(),qrText);
+
                     } catch (WriterException e) {
                         e.printStackTrace();
                     }

@@ -44,6 +44,9 @@ public class QRStudentActivity extends AppCompatActivity implements ZXingScanner
             send to backend to compare and register attendance
         */
 
+        ServerComm serverComm = new ServerComm();
+        serverComm.execute("3",MainActivity.user.getUserId(),MainActivity.user.getPassword(),result.getText());
+
         if(result!=null){
             Toast.makeText(getApplicationContext(),result.getText(),Toast.LENGTH_LONG).show();
         }

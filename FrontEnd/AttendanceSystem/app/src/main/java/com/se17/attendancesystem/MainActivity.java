@@ -23,8 +23,8 @@ public class MainActivity extends AppCompatActivity {
             String userIdEntered = userId.getText().toString();
             String passwordEntered = password.getText().toString();
 
-           // ServerComm serverComm = new ServerComm();
-            //serverComm.execute("0",userIdEntered,passwordEntered);
+            ServerComm serverComm = new ServerComm();
+            serverComm.execute("0",userIdEntered,passwordEntered);
 
             /*
                 Todo: Validate username and password, and get response from backend.

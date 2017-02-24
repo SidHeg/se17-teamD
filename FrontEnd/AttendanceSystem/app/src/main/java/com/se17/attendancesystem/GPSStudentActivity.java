@@ -60,9 +60,9 @@ public class GPSStudentActivity extends AppCompatActivity implements LocationLis
         public void onClick(View v) {
 
             getCurrentLocation();
-            //ServerComm serverComm = new ServerComm();
-            //serverComm.execute("2",MainActivity.user.getUserId(),MainActivity.user.getPassword(),payload);
-
+            ServerComm serverComm = new ServerComm();
+            serverComm.execute("2",MainActivity.user.getUserId(),MainActivity.user.getPassword(),
+                    ""+latitude,""+longitude);
 
         }
     };

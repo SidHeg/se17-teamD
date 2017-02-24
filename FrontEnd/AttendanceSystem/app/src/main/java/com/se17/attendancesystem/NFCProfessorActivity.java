@@ -71,8 +71,8 @@ public class NFCProfessorActivity extends AppCompatActivity {
             return;
         }
         if(writeToNFC(tag, payload)){
-            //ServerComm serverComm = new ServerComm();
-            //serverComm.execute("1",MainActivity.user.getUserId(),MainActivity.user.getPassword(),payload);
+            ServerComm serverComm = new ServerComm();
+            serverComm.execute("1",MainActivity.user.getUserId(),MainActivity.user.getPassword(),payload);
             Toast.makeText(getApplicationContext(),"Write Completed!",Toast.LENGTH_SHORT).show();
 
         }else{
