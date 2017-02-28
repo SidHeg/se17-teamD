@@ -18,8 +18,8 @@ class course(models.Model):
     course_name = models.CharField(max_length=100)
     professor = models.ForeignKey(professor, on_delete=models.CASCADE)
     qrcode = models.CharField(max_length=20, null=True)
-    latittude = models.FloatField(null=True)
-    longitude = models.FloatField(null=True)
+    latitude = models.CharField(max_length = 20, null=True)
+    longitude = models.CharField(max_length = 20, null=True)
     nfc = models.CharField(max_length=20, null=True)
 
 class attendance(models.Model):
