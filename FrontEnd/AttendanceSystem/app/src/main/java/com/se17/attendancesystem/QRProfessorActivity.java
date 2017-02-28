@@ -15,6 +15,8 @@ import com.google.zxing.WriterException;
 import com.google.zxing.common.BitMatrix;
 import com.journeyapps.barcodescanner.BarcodeEncoder;
 
+import java.util.concurrent.ExecutionException;
+
 public class QRProfessorActivity extends AppCompatActivity {
 
     private EditText qrInput;
@@ -51,7 +53,27 @@ public class QRProfessorActivity extends AppCompatActivity {
                         Bitmap bitmap = barcodeEncoder.createBitmap(bitMatrix);
                         qrImg.setImageBitmap(bitmap);
                         ServerComm serverComm = new ServerComm();
-                        serverComm.execute("3",MainActivity.user.getUserId(),MainActivity.user.getPassword(),qrText);
+                        String result = "";
+                        try {
+                            result = serverComm.execute("3", MainActivity.user.getUserId(), MainActivity.user.getPassword(), qrText).get();
+                        }catch (InterruptedException ex){
+                            Toast.makeText(getApplicationContext(),"Exception: Try again",Toast.LENGTH_SHORT).show();
+                            return;
+                        }catch (ExecutionException ex){
+                            Toast.makeText(getApplicationContext(),"Exception: Try again",Toast.LENGTH_SHORT).show();
+                            return;
+                        }
+
+                        if(result==null){
+                            Toast.makeText(getApplicationContext(),"Check Internet connection!",Toast.LENGTH_SHORT).show();
+                            return;
+                        }
+
+                        if(result.equalsIgnoreCase("successful")){
+                            Toast.makeText(getApplicationContext(),"QR code set!",Toast.LENGTH_LONG).show();
+                        }else{
+                            Toast.makeText(getApplicationContext(),"QR Code not set, try again!",Toast.LENGTH_LONG).show();
+                        }
 
                     } catch (WriterException e) {
                         e.printStackTrace();

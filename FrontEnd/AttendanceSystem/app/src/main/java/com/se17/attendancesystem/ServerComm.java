@@ -22,15 +22,16 @@ import javax.net.ssl.HttpsURLConnection;
 
 
 
-public class ServerComm extends AsyncTask<String, Boolean, Boolean>{
+public class ServerComm extends AsyncTask<String, Boolean, String>{
 
 
 
     @Override
-    protected Boolean doInBackground(String... params) {
+    protected String doInBackground(String... params) {
 
         URL url;
         HttpsURLConnection client;
+        StringBuilder sb;
         try
         {
             url = new URL("https://project1-007.herokuapp.com/attendance/");
@@ -41,17 +42,18 @@ public class ServerComm extends AsyncTask<String, Boolean, Boolean>{
             String payload;
 
             if(params[0].equalsIgnoreCase("0")){
-                payload = " { \"status\" : \"login\" , \"user_id\": \"" +params[1]+ "\", \"password\": \""+params[2]+"\" }";
+                payload = " { \"status\" : \"login\" , \"user_id\": \"" +params[1]+ "\", \"password\": \""+params[2]+"\", \"course_id\" : \"csc510\" }";
+                System.out.println("Message sent: " + payload);
             }else if(params[0].equalsIgnoreCase("1")){
-                payload = " { \"status\" : \"NFC\" , \"user_id\": \"" +params[1]+ "\", \"password\": \""+params[2]+ "\" , \"code\": \""+params[3]+"\"}";
+                payload = " { \"status\" : \"NFC\" , \"user_id\": \"" +params[1]+ "\", \"password\": \""+params[2]+ "\" , \"text\": \""+params[3]+"\", \"course_id\" : \"csc510\" }";
+                System.out.println("Message sent: " + payload);
             }else if(params[0].equalsIgnoreCase("2")){
-                payload = " { \"status\" : \"GPS\" , \"user_id\": \"" +params[1]+ "\", \"password\": \""+params[2]+ " \", \"latitude\": \""+params[3]+ "\" , \"longitude\": \""+params[4]+"\"}";
+                payload = " { \"status\" : \"GPS\" , \"user_id\": \"" +params[1]+ "\", \"password\": \""+params[2]+ " \", \"latitude\": \""+params[3]+ "\" , \"longitude\": \""+params[4]+"\", \"course_id\" : \"csc510\" }";
+                System.out.println("Message sent: " + payload);
             }else{
-                payload = " { \"status\" : \"QRC\" , \"user_id\": \"" +params[1]+ "\", \"password\": \""+params[2]+ "\" , \"code\": \""+params[3]+"\"}";
+                payload = " { \"status\" : \"QRC\" , \"user_id\": \"" +params[1]+ "\", \"password\": \""+params[2]+ "\" , \"text\": \""+params[3]+"\", \"course_id\" : \"csc510\" }";
+                System.out.println("Message sent: " + payload);
             }
-
-
-
 
             OutputStream outstream = client.getOutputStream();
             outstream.write(payload.getBytes());
@@ -68,9 +70,11 @@ public class ServerComm extends AsyncTask<String, Boolean, Boolean>{
             InputStream inputStream = client.getInputStream();
             int i=0;
             System.out.print("Message received: ");
+             sb = new StringBuilder();
             while((i=inputStream.read())!=-1)
             {
                 char c=(char)i;
+                sb.append(c);
                 System.out.print(c);
             }
             System.out.println();
@@ -80,17 +84,17 @@ public class ServerComm extends AsyncTask<String, Boolean, Boolean>{
 
         }catch (MalformedURLException ex1 ){
             System.out.println("MalformedURLException");
-            return new Boolean(false);
+            return null;
         }catch (IOException ex2){
             System.out.println("IOException");
-            return new Boolean(false);
+            return null;
         }
         System.out.println("Successful");
-        return new Boolean(true);
+        return sb.toString();
     }
 
     @Override
-    protected void onPostExecute(Boolean aBoolean) {
-        super.onPostExecute(aBoolean);
+    protected void onPostExecute(String str) {
+        super.onPostExecute(str);
     }
 }

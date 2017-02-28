@@ -11,6 +11,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.Toast;
 
+import java.util.concurrent.ExecutionException;
+
 /*
     Activity that handles the attendance registration of students using NFC Technology
  */
@@ -68,15 +70,29 @@ public class NFCStudentActivity extends AppCompatActivity {
                 messages[0] = (NdefMessage) rawMessages[0];
                 NdefRecord rec = messages[0].getRecords()[0];
                 payload = new String(rec.getPayload());
-                Toast.makeText(getApplicationContext(),payload,Toast.LENGTH_LONG).show();
+                //Toast.makeText(getApplicationContext(),payload,Toast.LENGTH_LONG).show();
                 ServerComm serverComm = new ServerComm();
-                serverComm.execute("1",MainActivity.user.getUserId(),MainActivity.user.getPassword(),payload);
+                String result="";
+                try {
+                    result = serverComm.execute("1", MainActivity.user.getUserId(), MainActivity.user.getPassword(), payload).get();
+                }catch (InterruptedException ex){
+                    Toast.makeText(getApplicationContext(),"Attendance not registered, try again",Toast.LENGTH_SHORT).show();
+                    return;
+                }catch (ExecutionException ex){
+                    Toast.makeText(getApplicationContext(),"Attendance not registered, try again",Toast.LENGTH_SHORT).show();
+                    return;
+                }
 
-                /*
-                    Todo:
-                        Authenticate the payload with backend and notify the student if he/she registered the
-                    attendance successfully
-                 */
+                if(result==null){
+                    Toast.makeText(getApplicationContext(),"Check your Internet Connection",Toast.LENGTH_LONG).show();
+                    return;
+                }
+
+                if(result.equalsIgnoreCase("successful")){
+                    Toast.makeText(getApplicationContext(),"Attendance Registered successfully!",Toast.LENGTH_LONG).show();
+                }else{
+                    Toast.makeText(getApplicationContext(),"Attendance not registered, try again",Toast.LENGTH_SHORT).show();
+                }
 
             }
         }

@@ -8,6 +8,8 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import java.util.concurrent.ExecutionException;
+
 public class MainActivity extends AppCompatActivity {
 
     private EditText userId;
@@ -24,14 +26,23 @@ public class MainActivity extends AppCompatActivity {
             String passwordEntered = password.getText().toString();
 
             ServerComm serverComm = new ServerComm();
-            serverComm.execute("0",userIdEntered,passwordEntered);
+            String result="";
+            try {
+                 result = serverComm.execute("0", userIdEntered, passwordEntered).get();
+                if(result!=null && !result.equalsIgnoreCase("failed"))
+                    Toast.makeText(getApplicationContext(),"Login Successful: "+result,Toast.LENGTH_SHORT).show();
+            }catch (InterruptedException ex){
 
-            /*
-                Todo: Validate username and password, and get response from backend.
-                1 => Professor, 2=> Student, else=> Log in failed.
-             */
-            int response = 2;
-            if(response == 1){
+            }catch (ExecutionException ex){
+
+            }
+
+            if(result==null){
+                Toast.makeText(getApplicationContext(),"Check your Internet Connection",Toast.LENGTH_LONG).show();
+                return;
+            }
+
+            if(result.equalsIgnoreCase("professor")){
                 user = new User();
                 user.setUserId(userIdEntered);
                 user.setPassword(passwordEntered);
@@ -39,7 +50,7 @@ public class MainActivity extends AppCompatActivity {
                 Intent intent = new Intent(getBaseContext(), ProfessorActivity.class);
                 startActivity(intent);
 
-            }else if(response == 2){
+            }else if(result.equalsIgnoreCase("student")){
                 user = new User();
                 user.setStudent(true);
                 user.setUserId(userIdEntered);
@@ -48,7 +59,6 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent);
 
             }else{
-
                 Toast.makeText(getApplicationContext(),"Wrong Credentials!",Toast.LENGTH_LONG).show();
                 return;
             }

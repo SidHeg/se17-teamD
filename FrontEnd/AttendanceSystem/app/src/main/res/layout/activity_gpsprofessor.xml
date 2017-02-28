@@ -16,7 +16,8 @@
         android:layout_height="wrap_content"
         android:textSize="20dp"
         android:layout_marginTop="5dp"
-        android:text="Click the button to start attendance registration Window!" />
+        android:text="Click the button to start attendance registration Window!
+        Enable GPS and Internet!" />
 
 
     <Button

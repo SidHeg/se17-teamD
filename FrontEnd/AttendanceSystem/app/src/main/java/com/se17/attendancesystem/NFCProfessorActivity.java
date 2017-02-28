@@ -16,6 +16,7 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import java.io.IOException;
+import java.util.concurrent.ExecutionException;
 
 /*
     Activity that helps professor to write payload in the NFC Tags
@@ -51,7 +52,7 @@ public class NFCProfessorActivity extends AppCompatActivity {
     @Override
     protected void onResume() {
         super.onResume();
-        nfcAdapter.enableForegroundDispatch(this,pendingIntent,filterArray,null);
+        nfcAdapter.enableForegroundDispatch(this, pendingIntent, filterArray, null);
 
     }
 
@@ -63,21 +64,45 @@ public class NFCProfessorActivity extends AppCompatActivity {
     @Override
     protected void onNewIntent(Intent intent) {
         super.onNewIntent(intent);
-        Toast.makeText(getApplicationContext(),"NFC Tag detected",Toast.LENGTH_SHORT).show();
         Tag tag = intent.getParcelableExtra(NfcAdapter.EXTRA_TAG);
         String payload = nfcText.getText().toString();
         if(payload.length()<=3 || payload.length() >=30){
             Toast.makeText(getApplicationContext(),"Allowed payload length >3 and <30",Toast.LENGTH_SHORT).show();
             return;
         }
-        if(writeToNFC(tag, payload)){
-            ServerComm serverComm = new ServerComm();
-            serverComm.execute("1",MainActivity.user.getUserId(),MainActivity.user.getPassword(),payload);
-            Toast.makeText(getApplicationContext(),"Write Completed!",Toast.LENGTH_SHORT).show();
+
+
+        ServerComm serverComm = new ServerComm();
+        String result = "";
+        try {
+            result = serverComm.execute("1", MainActivity.user.getUserId(), MainActivity.user.getPassword(), payload).get();
+        }catch (InterruptedException ex){
+            Toast.makeText(getApplicationContext(),"Write Failed!",Toast.LENGTH_SHORT).show();
+            return;
+        }catch (ExecutionException ex){
+            Toast.makeText(getApplicationContext(),"Write Failed!",Toast.LENGTH_SHORT).show();
+            return;
+        }
+
+        if(result==null){
+            Toast.makeText(getApplicationContext(),"Check your Internet Connection",Toast.LENGTH_LONG).show();
+            return;
+        }
+
+        if(result.equalsIgnoreCase("successful")){
+            Toast.makeText(getApplicationContext(),"NFC TAG Stored in Backend",Toast.LENGTH_LONG).show();
+
+            if(writeToNFC(tag, payload)){
+                Toast.makeText(getApplicationContext(),"NFC TAG Write Completed!",Toast.LENGTH_LONG).show();
+
+            }else{
+                Toast.makeText(getApplicationContext(),"NFC TAG Write Failed, Try again!",Toast.LENGTH_LONG).show();
+            }
 
         }else{
-            Toast.makeText(getApplicationContext(),"Write Failed!",Toast.LENGTH_SHORT).show();
+            Toast.makeText(getApplicationContext(),"NFC TAG not stored in Backend!, Try Again",Toast.LENGTH_SHORT).show();
         }
+
     }
 
     /*
