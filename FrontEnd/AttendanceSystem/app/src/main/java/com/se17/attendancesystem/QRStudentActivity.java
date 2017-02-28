@@ -7,6 +7,9 @@ import android.widget.Button;
 import android.widget.Toast;
 
 import com.google.zxing.Result;
+
+import java.util.concurrent.ExecutionException;
+
 import me.dm7.barcodescanner.zxing.ZXingScannerView;
 
 public class QRStudentActivity extends AppCompatActivity implements ZXingScannerView.ResultHandler {
@@ -40,12 +43,32 @@ public class QRStudentActivity extends AppCompatActivity implements ZXingScanner
 
     @Override
     public void handleResult(Result result) {
-        /*
-            send to backend to compare and register attendance
-        */
 
         if(result!=null){
             Toast.makeText(getApplicationContext(),result.getText(),Toast.LENGTH_LONG).show();
+
+            ServerComm serverComm = new ServerComm();
+            String res = "";
+            try {
+                res = serverComm.execute("3", MainActivity.user.getUserId(), MainActivity.user.getPassword(), result.getText()).get();
+            }catch (InterruptedException ex){
+                Toast.makeText(getApplicationContext(),"Attendance not registered, try again",Toast.LENGTH_SHORT).show();
+                return;
+            }catch (ExecutionException ex){
+                Toast.makeText(getApplicationContext(),"Attendance not registered, try again",Toast.LENGTH_SHORT).show();
+                return;
+            }
+
+            if(res==null){
+                Toast.makeText(getApplicationContext(),"Check your Internet Connection",Toast.LENGTH_LONG).show();
+                return;
+            }
+
+            if(res.equalsIgnoreCase("successful")){
+                Toast.makeText(getApplicationContext(),"Attendance Registered successfully!",Toast.LENGTH_LONG).show();
+            }else{
+                Toast.makeText(getApplicationContext(),"Attendance not registered, try again",Toast.LENGTH_SHORT).show();
+            }
         }
         else{
             Toast.makeText(getApplicationContext(),"QR Code was not scanned!",Toast.LENGTH_LONG).show();

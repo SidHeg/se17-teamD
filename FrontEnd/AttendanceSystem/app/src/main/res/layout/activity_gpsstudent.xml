@@ -16,7 +16,8 @@
         android:layout_height="wrap_content"
         android:textSize="20dp"
         android:layout_marginTop="5dp"
-        android:text="Click the button to to register your Attendance!" />
+        android:text="Click the button to to register your Attendance!
+            Enable GPS and Internet!" />
 
 
     <Button

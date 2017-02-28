@@ -12,6 +12,8 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 
+import java.util.concurrent.ExecutionException;
+
 public class GPSProfessorActivity extends AppCompatActivity implements LocationListener{
 
     private Button btnGPS;
@@ -57,9 +59,33 @@ public class GPSProfessorActivity extends AppCompatActivity implements LocationL
         @Override
         public void onClick(View v) {
 
-           getCurrentLocation();
-            //ServerComm serverComm = new ServerComm();
-            //serverComm.execute("2",MainActivity.user.getUserId(),MainActivity.user.getPassword(),payload);
+            Location loc = getCurrentLocation();
+            if(loc==null || latitude==0 || longitude==0)
+                return;
+
+            ServerComm serverComm = new ServerComm();
+            String result = "";
+            try {
+                result = serverComm.execute("2", MainActivity.user.getUserId(), MainActivity.user.getPassword(),
+                        "" + latitude, "" + longitude).get();
+            }catch (InterruptedException ex){
+                Toast.makeText(getApplicationContext(),"Exception: Try again",Toast.LENGTH_SHORT).show();
+                return;
+            }catch (ExecutionException ex){
+                Toast.makeText(getApplicationContext(),"Exception: Try again",Toast.LENGTH_SHORT).show();
+                return;
+            }
+
+            if(result==null){
+                Toast.makeText(getApplicationContext(),"Check Internet connection!",Toast.LENGTH_SHORT).show();
+                return;
+            }
+
+            if(result.equalsIgnoreCase("successful")){
+                Toast.makeText(getApplicationContext(),"GPS location set!",Toast.LENGTH_LONG).show();
+            }else{
+                Toast.makeText(getApplicationContext(),"GPS location not set, try again!",Toast.LENGTH_LONG).show();
+            }
 
 
         }

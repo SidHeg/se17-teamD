@@ -12,6 +12,8 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 
+import java.util.concurrent.ExecutionException;
+
 public class GPSStudentActivity extends AppCompatActivity implements LocationListener{
 
     private Button btnGPS;
@@ -59,10 +61,33 @@ public class GPSStudentActivity extends AppCompatActivity implements LocationLis
         @Override
         public void onClick(View v) {
 
-            getCurrentLocation();
-            //ServerComm serverComm = new ServerComm();
-            //serverComm.execute("2",MainActivity.user.getUserId(),MainActivity.user.getPassword(),payload);
+            Location loc = getCurrentLocation();
+            if(loc==null || latitude==0 || longitude==0)
+                return;
 
+            ServerComm serverComm = new ServerComm();
+            String result = "";
+            try {
+                result = serverComm.execute("2", MainActivity.user.getUserId(), MainActivity.user.getPassword(),
+                        "" + latitude, "" + longitude).get();
+            }catch (InterruptedException ex){
+                Toast.makeText(getApplicationContext(),"Attendance not registered, try again",Toast.LENGTH_SHORT).show();
+                return;
+            }catch (ExecutionException ex){
+                Toast.makeText(getApplicationContext(),"Attendance not registered, try again",Toast.LENGTH_SHORT).show();
+                return;
+            }
+
+            if(result==null){
+                Toast.makeText(getApplicationContext(),"Check your Internet Connection",Toast.LENGTH_LONG).show();
+                return;
+            }
+
+            if(result.equalsIgnoreCase("successful")){
+                Toast.makeText(getApplicationContext(),"Attendance Registered successfully!",Toast.LENGTH_LONG).show();
+            }else{
+                Toast.makeText(getApplicationContext(),"Attendance not registered, try again",Toast.LENGTH_SHORT).show();
+            }
 
         }
     };

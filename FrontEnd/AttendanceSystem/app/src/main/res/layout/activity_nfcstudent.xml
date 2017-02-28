@@ -10,4 +10,11 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="com.se17.attendancesystem.NFCStudentActivity">
 
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="20dp"
+        android:paddingBottom="20dp"
+        android:text="Enable NFC and tap the device against the NFC Tag!" />
+
 </RelativeLayout>
