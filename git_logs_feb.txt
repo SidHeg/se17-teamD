@@ -1,0 +1,467 @@
+commit ddb920296acdce85ccede4ee70c175b376dbb72d
+Merge: a05b3a1 3339e35
+Author: Saravanan balasubramanian <bsaran19@gmail.com>
+Date:   Tue Feb 28 21:43:30 2017 -0500
+
+    Merge pull request #34 from SidHeg/unit_test_frontend
+    
+    Build script modified to support unit testing
+
+commit 3339e353f59212fdc1d86b5f07a75e8f525cd5bd
+Author: sbalasu7 <sbalasu7@ncsu.edu>
+Date:   Tue Feb 28 21:42:26 2017 -0500
+
+    Build script modified to support unit testing
+
+commit a05b3a117ceb413c6822950bcb995539cf4146c8
+Author: Saravanan balasubramanian <bsaran19@gmail.com>
+Date:   Tue Feb 28 19:39:09 2017 -0500
+
+    Feb Report
+
+commit 50918847e54023c97492b015a2b900b8b09a1c62
+Merge: f5e15e5 e953a00
+Author: Siddharth <Siddharth.sidd7@gmail.com>
+Date:   Tue Feb 28 00:36:20 2017 -0500
+
+    Merge pull request #33 from SidHeg/backend-branch
+    
+    finished
+
+commit e953a007f91b01d217ac2e80a3b998037c9079d6
+Author: SidHeg <siddharth.sidd7@gmail.com>
+Date:   Tue Feb 28 00:32:34 2017 -0500
+
+    finished
+
+commit f5e15e53708fa421f7e03bcfaa2e78e0505253c9
+Merge: d7cf369 5704236
+Author: Saravanan balasubramanian <bsaran19@gmail.com>
+Date:   Mon Feb 27 23:02:58 2017 -0500
+
+    Merge pull request #31 from SidHeg/FBComm
+    
+    Fb comm
+
+commit 57042361ec6e526c6f5e6d29b1caaa8dca2c256a
+Author: sbalasu7 <sbalasu7@ncsu.edu>
+Date:   Mon Feb 27 23:02:04 2017 -0500
+
+    Frontend backend communication
+
+commit d1bf70d971dc792fab037a9c91a0a10feb0378dc
+Author: saravanan19 <bsaran19@gmail.com>
+Date:   Thu Feb 23 20:12:01 2017 -0500
+
+    HTTP rest api calls
+
+commit d7cf3699c63734eee711762e7c1cb2aeab017426
+Author: SidHeg <siddharth.sidd7@gmail.com>
+Date:   Thu Feb 23 18:52:22 2017 -0500
+
+    adding backend directory
+
+commit 604eb6c81a4761e3743b7c5cc784efcf55ec21e3
+Author: saravanan19 <bsaran19@gmail.com>
+Date:   Thu Feb 23 18:09:12 2017 -0500
+
+    Deleting backend folder
+
+commit 27d910cf07029bed4edca76f646240ff6170e09c
+Merge: 21f0135 fc3a3da
+Author: Siddharth <Siddharth.sidd7@gmail.com>
+Date:   Thu Feb 23 18:02:49 2017 -0500
+
+    Merge pull request #30 from SidHeg/Backend
+    
+    backend code
+
+commit fc3a3dabfd2b34585497c5e51107913961a9220c
+Author: SidHeg <siddharth.sidd7@gmail.com>
+Date:   Thu Feb 23 17:55:47 2017 -0500
+
+    backend code
+
+commit 21f013515d0b7f04db97dfff392f7e123edf64c2
+Author: saravanan19 <bsaran19@gmail.com>
+Date:   Thu Feb 23 17:35:21 2017 -0500
+
+    Frontend backend communication - initial code
+
+commit 8977d6176ef70b4a6fbbfb29a54bedbca24cc34b
+Author: saravanan19 <bsaran19@gmail.com>
+Date:   Thu Feb 23 12:44:23 2017 -0500
+
+    GPS fix
+
+commit 92d9ba7b0e5bb9ed85048aa31f4540dbbf1d1839
+Merge: be98890 aeb4d86
+Author: mohits19 <mohits19j95@gmail.com>
+Date:   Thu Feb 23 03:59:15 2017 -0500
+
+    Merge pull request #29 from SidHeg/qrc
+    
+    QRC
+
+commit aeb4d86c55aa745c49d1855690327d73c7ead141
+Author: Mohit Sardar <mohits19j95@gmail.com>
+Date:   Thu Feb 23 03:57:26 2017 -0500
+
+    Fixed bug with generating QR Code for empty text
+
+commit be98890d4d2a860141ffeca2e8d8571e3661fdc2
+Merge: 281c3d3 66c583f
+Author: Saravanan balasubramanian <bsaran19@gmail.com>
+Date:   Thu Feb 23 03:04:57 2017 -0500
+
+    Merge pull request #27 from SidHeg/GPS
+    
+    GPS Code development
+
+commit 66c583f9cc79117d9f2d36a8d3db8ced0bb1113d
+Author: saravanan19 <bsaran19@gmail.com>
+Date:   Thu Feb 23 03:03:28 2017 -0500
+
+    GPS Code development
+
+commit 689e96ddb6ee3c05b57c33a2b057b73c5fa73129
+Author: Mohit Sardar <mohits19j95@gmail.com>
+Date:   Wed Feb 22 16:31:17 2017 -0500
+
+    Minor UI Change and using Toast to view result of QR scanning instead of AlertDialog
+
+commit 281c3d3609b0a58c476b27739c37662fe3983ab0
+Merge: 198adaf 03a0b49
+Author: mohits19 <mohits19j95@gmail.com>
+Date:   Tue Feb 21 18:49:58 2017 -0500
+
+    Merge pull request #26 from SidHeg/qrc
+    
+    basic QR code scanner
+
+commit 03a0b4919180307ba85878729bc316b50bef735b
+Author: Mohit Sardar <mohits19j95@gmail.com>
+Date:   Tue Feb 21 18:47:13 2017 -0500
+
+    basic QR code scanner
+
+commit 198adaf2c5071131f0a33d13df3e1e88042b28c9
+Author: Siddharth <Siddharth.sidd7@gmail.com>
+Date:   Tue Feb 21 03:15:57 2017 -0500
+
+    Contains Backend code
+
+commit d5d1e106110ff44c8b1ccf0a4396230159025c93
+Merge: 60ef432 7ff49f4
+Author: Saravanan balasubramanian <bsaran19@gmail.com>
+Date:   Tue Feb 21 03:12:30 2017 -0500
+
+    Merge pull request #25 from SidHeg/GPS
+    
+    GPS code development layout setup
+
+commit 7ff49f4027b7742e44f49db3dc7f314414a57d07
+Author: saravanan19 <bsaran19@gmail.com>
+Date:   Tue Feb 21 03:05:55 2017 -0500
+
+    GPS code development layout setup
+
+commit 60ef43267999d6cdbad0ea37a1b9d0532475b428
+Merge: 9848ead 26feeb0
+Author: mohits19 <mohits19j95@gmail.com>
+Date:   Tue Feb 21 02:35:57 2017 -0500
+
+    Merge pull request #24 from SidHeg/qrc
+    
+    Generating QR code from basic text
+
+commit 26feeb0a38063dce0eeaa6859bb198a29f306048
+Author: Mohit Sardar <mohits19j95@gmail.com>
+Date:   Tue Feb 21 01:59:14 2017 -0500
+
+    Generating QR code from basic text
+
+commit 9848ead6eba33417cd3b09844cd24253d8e673fb
+Merge: 2003f03 a099c4a
+Author: SidHeg <siddharth.sidd7@gmail.com>
+Date:   Tue Feb 21 01:48:42 2017 -0500
+
+    Merge branch 'master' of https://github.com/SidHeg/se17-teamD
+
+commit 2003f03e14553f8a663756c73b582d5f039b3132
+Author: SidHeg <siddharth.sidd7@gmail.com>
+Date:   Tue Feb 21 01:44:53 2017 -0500
+
+    added backend code
+
+commit a099c4a37d33b63ab8eb4242b483d036225394b8
+Author: Siddharth <Siddharth.sidd7@gmail.com>
+Date:   Tue Feb 21 01:15:47 2017 -0500
+
+    Delete BackEnd
+
+commit 68ff64a9483929b016fd244f4fbe2d3c275ab32c
+Author: Siddharth <Siddharth.sidd7@gmail.com>
+Date:   Tue Feb 21 01:14:42 2017 -0500
+
+    Contains Backend code
+
+commit abfe8f4f19759f6fb550f5b86a7a96855ce39ea2
+Merge: b71baa9 13b46dc
+Author: Saravanan balasubramanian <bsaran19@gmail.com>
+Date:   Mon Feb 20 02:24:16 2017 -0500
+
+    Merge pull request #23 from SidHeg/NFC
+    
+    Cleanup code
+
+commit 13b46dcdb89c9b988a9736f54b8a72eb96091335
+Author: saravanan19 <bsaran19@gmail.com>
+Date:   Mon Feb 20 02:21:24 2017 -0500
+
+    Cleanup code
+
+commit b71baa90e01edea31061674005e145346390a2fa
+Merge: 57c6f5a f38fe2d
+Author: Saravanan balasubramanian <bsaran19@gmail.com>
+Date:   Mon Feb 20 01:35:47 2017 -0500
+
+    Merge pull request #22 from SidHeg/NFC
+    
+    Nfc
+
+commit f38fe2dcd2fb3e269a750452ecf27d21ddc49ce5
+Author: saravanan19 <bsaran19@gmail.com>
+Date:   Mon Feb 20 01:32:03 2017 -0500
+
+    NFC Writer completed
+
+commit 37746b62e4c2abf9d60bd82451d081ce7349b8ea
+Author: saravanan19 <bsaran19@gmail.com>
+Date:   Mon Feb 20 00:43:25 2017 -0500
+
+    NFC Reader bug fix
+
+commit cb3ce7b85c0ad773679fe3759f1a7ee80787ed47
+Author: saravanan19 <bsaran19@gmail.com>
+Date:   Sun Feb 19 23:28:56 2017 -0500
+
+    NFC Write layout created
+
+commit 57c6f5a5ada24f0a9d61e726afecd759f7ca54a5
+Merge: cec2a11 25e23d7
+Author: Saravanan balasubramanian <bsaran19@gmail.com>
+Date:   Sun Feb 19 23:02:26 2017 -0500
+
+    Merge pull request #21 from SidHeg/NFC
+    
+    NFC Read completed
+
+commit 25e23d73243f6f19a47c3b3b4a4d3c7009c3b6e2
+Author: saravanan19 <bsaran19@gmail.com>
+Date:   Sun Feb 19 22:59:17 2017 -0500
+
+    NFC Read completed
+
+commit cec2a11a6927ba5f63376ff44332c0a8b1d3df20
+Author: saravanan19 <bsaran19@gmail.com>
+Date:   Sun Feb 19 19:58:38 2017 -0500
+
+    experimenting branch
+
+commit a758165dc599c7a7ea61efba10c08288003f18a7
+Author: saravanan19 <bsaran19@gmail.com>
+Date:   Sun Feb 19 19:41:45 2017 -0500
+
+    NFC GPS QR Code Activity skeleton
+
+commit fa21af4b1a03f6bbb368f63e31f4f8ce33719a0b
+Author: saravanan19 <bsaran19@gmail.com>
+Date:   Thu Feb 16 01:49:33 2017 -0500
+
+    Added Professor and Student activity
+
+commit 93f4fcdcd3bfb09b1c3fcc3110b627be7f941817
+Author: saravanan19 <bsaran19@gmail.com>
+Date:   Thu Feb 16 00:40:16 2017 -0500
+
+    removing unwanted folder
+
+commit 65c560d8ecf248ea76a1464037ccb2cbc55bfd14
+Author: saravanan19 <bsaran19@gmail.com>
+Date:   Thu Feb 16 00:25:49 2017 -0500
+
+    FrontEnd initial code
+
+commit 3cb612230dd8bf3e48d03b1f27c2d468f7ad6b6a
+Author: mohits19 <mohits19j95@gmail.com>
+Date:   Thu Feb 2 20:23:19 2017 -0500
+
+    added chit numbers
+
+commit 979d066201fbf1ba14a7a8dd10f4ce5451146fd0
+Author: mohits19 <mohits19j95@gmail.com>
+Date:   Tue Jan 31 15:58:33 2017 -0500
+
+    updating project report
+
+commit 5cdafd5af3d53ded330b600ec842e25df71c827c
+Author: mohits19 <mohits19j95@gmail.com>
+Date:   Tue Jan 31 15:51:12 2017 -0500
+
+    updating project report
+
+commit 36f405f22a963043c038e2eeb73c2d25eefd9e1f
+Author: mohits19 <mohits19j95@gmail.com>
+Date:   Tue Jan 31 02:42:45 2017 -0500
+
+    Uploading Project Report
+
+commit 15fc867dd7600367f9fcf67854db782c1253cdaa
+Author: Siddharth <Siddharth.sidd7@gmail.com>
+Date:   Tue Jan 31 00:07:12 2017 -0500
+
+    Rename UserStudy to UserStudy_old
+
+commit d62ba43c6dfd49fab7e36d4f37e70c7ee737747c
+Author: Siddharth <Siddharth.sidd7@gmail.com>
+Date:   Mon Jan 30 20:36:52 2017 -0500
+
+    Update Literature Study
+
+commit 3534c155354b0b28a8c77dd1a3a8f4d8b1a15527
+Merge: bcf4d3b 98c0268
+Author: Siddharth <Siddharth.sidd7@gmail.com>
+Date:   Mon Jan 30 11:50:57 2017 -0500
+
+    Merge pull request #7 from SidHeg/siddharth
+    
+    Merge pull request #2 from SidHeg/master
+
+commit bcf4d3b926fade1d8e5d6d2b47c14124afbc4086
+Author: Saravanan balasubramanian <bsaran19@gmail.com>
+Date:   Sun Jan 29 21:43:05 2017 -0500
+
+    deleting
+
+commit 6cd1074594077725d9c20663dad6bd6150768e80
+Author: Saravanan balasubramanian <bsaran19@gmail.com>
+Date:   Sun Jan 29 21:42:44 2017 -0500
+
+    Adding Paper to collabrate
+
+commit 569fa23fb54348de5fb822dd26d3072ef490cc4b
+Author: Saravanan balasubramanian <bsaran19@gmail.com>
+Date:   Sat Jan 28 23:50:14 2017 -0500
+
+    adding NFC lit study
+
+commit b32f332c7ef7d82622d3511679d58a1f96da74b5
+Author: mohits19 <mohits19j95@gmail.com>
+Date:   Sat Jan 28 23:42:08 2017 -0500
+
+    Minor edit
+
+commit d20043c1402babc230b1ab8de9c4d361e7bd9bf0
+Author: mohits19 <mohits19j95@gmail.com>
+Date:   Sat Jan 28 23:41:38 2017 -0500
+
+    API for QR codes
+
+commit 3ed35fa70c25bd36848c7ad43d67e7b0b3128c61
+Author: mohits19 <mohits19j95@gmail.com>
+Date:   Sat Jan 28 23:38:34 2017 -0500
+
+    Details about QR-Code Generator
+
+commit db2f34d8d815866bde2f628eacc3decfd45444a0
+Author: mohits19 <mohits19j95@gmail.com>
+Date:   Sat Jan 28 23:07:29 2017 -0500
+
+    Minor edit
+
+commit 23b869d24a90996546d952491a111f3723c4bccf
+Author: mohits19 <mohits19j95@gmail.com>
+Date:   Sat Jan 28 22:58:24 2017 -0500
+
+    Details about attendance system using QR code
+
+commit 8403e3ec4bd4f86ad23b527f405a8c076ebe4f0b
+Author: Saravanan balasubramanian <bsaran19@gmail.com>
+Date:   Sat Jan 28 22:50:46 2017 -0500
+
+    Create Literature Study
+
+commit d78f71c9cf53e6f316da0c02cdc21e2b206c6ff7
+Author: Saravanan balasubramanian <bsaran19@gmail.com>
+Date:   Tue Jan 24 20:55:28 2017 -0500
+
+    creating user study - Attendance system
+
+commit b563d298d0d87298101646f8b21d3f5bc61db91a
+Author: Saravanan balasubramanian <bsaran19@gmail.com>
+Date:   Mon Jan 23 20:20:10 2017 -0500
+
+    Creating user study
+
+commit 98c026899b5e8608047ea7a643322c39c0305384
+Merge: d57a66e ffa44a9
+Author: Siddharth <Siddharth.sidd7@gmail.com>
+Date:   Sat Jan 21 03:00:38 2017 -0500
+
+    Merge pull request #2 from SidHeg/master
+    
+    Pulling updated master branch
+
+commit ffa44a9159878da7941a66a38c38a043a7eefba2
+Author: Saravanan balasubramanian <bsaran19@gmail.com>
+Date:   Fri Jan 20 16:02:51 2017 -0500
+
+    Adding the Cab Fare Estimation Idea
+
+commit 84641b3545c96a2604252deda0d95704ade8e3f8
+Author: Saravanan balasubramanian <bsaran19@gmail.com>
+Date:   Fri Jan 20 13:28:41 2017 -0500
+
+    changes to password management idea
+
+commit 5d9190aab0498a8e528129c84cda808bc7ae0b4d
+Author: Saravanan balasubramanian <bsaran19@gmail.com>
+Date:   Fri Jan 20 13:21:48 2017 -0500
+
+    Adding Password management Idea
+
+commit 0abb3147fb384500d6620bb187e18467dc5c508f
+Merge: 60e9e1d d57a66e
+Author: Siddharth <Siddharth.sidd7@gmail.com>
+Date:   Thu Jan 19 02:02:29 2017 -0500
+
+    Merge pull request #1 from SidHeg/siddharth
+    
+    1/19/2017
+
+commit d57a66e6fdece4d814195d9693c87b4021f75705
+Author: Siddharth <Siddharth.sidd7@gmail.com>
+Date:   Thu Jan 19 02:00:05 2017 -0500
+
+    1/19/2017
+
+commit 60e9e1d62cae35332b4d45b4841f7a4073a4ca67
+Author: Saravanan balasubramanian <bsaran19@gmail.com>
+Date:   Tue Jan 17 20:12:45 2017 -0500
+
+    Editing the idea
+
+commit 779ef48b90e758769256713289d4df782c958a3d
+Author: Saravanan balasubramanian <bsaran19@gmail.com>
+Date:   Tue Jan 17 20:09:27 2017 -0500
+
+    Ideas file creation
+    
+    creating a new file to discuss ideas for the project
+
+commit 90d632ca297926d18c1a59653b7cfa601823585e
+Author: Siddharth <Siddharth.sidd7@gmail.com>
+Date:   Sat Jan 14 14:02:38 2017 -0500
+
+    Initial commit
