@@ -51,7 +51,7 @@ public class ServerComm extends AsyncTask<String, Boolean, String>{
                 payload = " { \"status\" : \"GPS\" , \"user_id\": \"" +params[1]+ "\", \"password\": \""+params[2]+ " \", \"latitude\": \""+params[3]+ "\" , \"longitude\": \""+params[4]+"\", \"course_id\" : \"csc510\" }";
                 System.out.println("Message sent: " + payload);
             }else{
-                payload = " { \"status\" : \"QRC\" , \"user_id\": \"" +params[1]+ "\", \"password\": \""+params[2]+ "\" , \"text\": \""+params[3]+"\", \"course_id\" : \"csc510\" }";
+                payload = " { \"status\" : \"QRC\" , \"user_id\": \"" +params[1]+ "\", \"password\": \""+params[2]+ "\" , \"text\": \""+params[3]+"\", \"image\": \""+params[4]+"\", \"course_id\" : \"csc510\" }";
                 System.out.println("Message sent: " + payload);
             }
 

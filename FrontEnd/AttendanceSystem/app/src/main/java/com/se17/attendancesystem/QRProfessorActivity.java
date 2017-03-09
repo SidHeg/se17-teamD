@@ -3,6 +3,7 @@ package com.se17.attendancesystem;
 import android.graphics.Bitmap;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Base64;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
@@ -15,7 +16,9 @@ import com.google.zxing.WriterException;
 import com.google.zxing.common.BitMatrix;
 import com.journeyapps.barcodescanner.BarcodeEncoder;
 
+import java.io.ByteArrayOutputStream;
 import java.util.concurrent.ExecutionException;
+
 
 public class QRProfessorActivity extends AppCompatActivity {
 
@@ -52,10 +55,16 @@ public class QRProfessorActivity extends AppCompatActivity {
                         BarcodeEncoder barcodeEncoder = new BarcodeEncoder();
                         Bitmap bitmap = barcodeEncoder.createBitmap(bitMatrix);
                         qrImg.setImageBitmap(bitmap);
+
+                        ByteArrayOutputStream byteArray = new ByteArrayOutputStream();
+                        bitmap.compress(Bitmap.CompressFormat.PNG, 100, byteArray);
+                        byte[] b = byteArray.toByteArray();
+                        String encodedImage = Base64.encodeToString(b, Base64.DEFAULT);
+
                         ServerComm serverComm = new ServerComm();
                         String result = "";
                         try {
-                            result = serverComm.execute("3", MainActivity.user.getUserId(), MainActivity.user.getPassword(), qrText).get();
+                            result = serverComm.execute("3", MainActivity.user.getUserId(), MainActivity.user.getPassword(), qrText, encodedImage).get();
                         }catch (InterruptedException ex){
                             Toast.makeText(getApplicationContext(),"Exception: Try again",Toast.LENGTH_SHORT).show();
                             return;
