@@ -21,6 +21,9 @@ class course(models.Model):
     latitude = models.CharField(max_length = 20, null=True)
     longitude = models.CharField(max_length = 20, null=True)
     nfc = models.CharField(max_length=20, null=True)
+    qrimage = models.TextField(null=True)
+    qrtime = models.DateTimeField('date published', null=True)
+
 
 class attendance(models.Model):
 	course = models.ForeignKey(course, on_delete=models.CASCADE)
