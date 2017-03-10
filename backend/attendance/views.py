@@ -4,15 +4,14 @@ from django.template import loader
 from django.utils import timezone
 from .models import professor, student, course, attendance
 import json, sys, ast
-import ast
 
 def login(post):
 	print("inside login function")
 	try:
 		user_id = post['user_id'].strip().lower()
 		password = post['password'].strip().lower()
-	except:
-		print("username password not received")
+	except exception, e:
+		print("username or password not received: %s" %e)
 		return "failed"
 	try:
 		s1 =  student.objects.get(stud_id=user_id)
@@ -23,7 +22,7 @@ def login(post):
 			print("student login failed")
 			return "failed"
 	except:
-		a = 1
+		print("not a student, checking for professor")
 	try:
 		p1 =  professor.objects.get(prof_id=user_id)
 		if p1.password == password:
@@ -32,8 +31,8 @@ def login(post):
 		else:
 			print("professor login failed")
 			return "failed"
-	except:
-		print("both student and professor login failed")
+	except exception, e:
+		print("both student and professor login failed: %s" %e)
 		return "failed"
 
 
@@ -50,49 +49,49 @@ def gps(post):
 		course_id = post['course_id'].strip().lower()
 		latitude = post['latitude'].strip().lower()
 		longitude = post['longitude'].strip().lower()
-	except:
-		print("gps_not_received")
+	except exception, e:
+		print("gps_not_received: %s" %e)
 		return "failed"
 
 	log = login(post)
 
 	if log == "professor":
 		try:
-
 			c1 = course.objects.filter(course_id=course_id, professor__prof_id=user_id)[0]
-			print("string to float begin")
-			print(latitude + " " + longitude)
-			print(type(c1.latitude))
 			c1.longitude = longitude
 			print("step1")
 			c1.latitude = latitude
 			print("step2")
 			c1.save()
-			#print("string to float successful")
 			print("professor_gps_stored_sucessfully")
 			return "successful"
 		except exception, e:
-			print("error while saving : %s" %e)
+			print("unable to save professor gps coordinates: %s" %e)
 			return "failed"
 
 	elif log == "student":
-		c1 = course.objects.filter(course_id=course_id)[0]
-		s1 = student.objects.get(stud_id = user_id)
-		lat1 = float(c1.latitude)
-		lat2 = float(latitude)
-		lon1 = float(c1.longitude)
-		lon2 = float(longitude)
-		if checkGPS(lat1, lon1, lat2, lon2):
-			a1 = attendance.objects.create(course = c1, student=s1)
-			a1.gps = timezone.now()
-			a1.save()
-			print("student_gps_attendance_successful")
-			return "successful"
-		else:
-			print("student_gps_attendance_failed")
-			return "failed"
+		try:
+			c1 = course.objects.filter(course_id=course_id)[0]
+			s1 = student.objects.get(stud_id = user_id)
+			lat1 = float(c1.latitude)
+			lat2 = float(latitude)
+			lon1 = float(c1.longitude)
+			lon2 = float(longitude)
+			print("converted coordinates from unicode to float")
+			if checkGPS(lat1, lon1, lat2, lon2):
+				a1 = attendance.objects.create(course = c1, student=s1)
+				a1.gps = timezone.now()
+				a1.save()
+				print("student_gps_attendance_successful")
+				return "successful"
+			else:
+				print("student_gps_attendance_failed")
+				return "failed"
+		except exception, e:
+			print("unable to save student gps coordinates: %s" %e)
 
 	else:
+		print("login failed, hence gps failed")
 		return log
 
 
@@ -101,8 +100,10 @@ def qrc(post):
 	try:
 		user_id = post['user_id'].strip().lower()
 		text = post['text'].strip().lower()
+		image = post['image']
 		course_id = post['course_id'].strip().lower()
-	except:
+	except exception, e:
+		print("qrc not received: %s" %e)
 		return "failed"
 
 	log = login(post)
@@ -110,6 +111,8 @@ def qrc(post):
 	if log == "professor":
 		c1 = course.objects.filter(course_id=course_id)[0]
 		c1.qrcode = text
+		c1.qrimage = image
+		c1.qrtime = timezone.now()
 		c1.save()
 		return "successful"
 
@@ -162,12 +165,14 @@ def nfc(post):
 			return "failed"
 	else:
 		return log
+	
 
 def index(request):
 	try:
+		print("inside index")
 		if request.method == 'POST':
 			received_data=json.loads(request.body)
-			#return HttpResponse(received_data)
+			print("converted json to dictionary")
 			try:
 				status = received_data["status"].strip().lower()
 				#return HttpResponse(status)
@@ -188,6 +193,11 @@ def index(request):
 				print(sys.exc_info()[0])
 				return HttpResponse(sys.exc_info()[0])
 		else:
-			return HttpResponse("Not a POST method")
-	except:
-		return HttpResponse("Hello, world. You're at the Attendance Management System. %s" %sys.exc_info()[0])
+			return HttpResponse("In a post method send a json data")
+	except exception, e:
+		print("unable to convert json to dictionary %s" %e)
+		return HttpResponse("unable to convert json to dictionary %s" %sys.exc_info()[0])
+
+def qrimage(request):
+	c1 = course.objects.filter(course_id="csc510")[0]
+	return HttpResponse("<img src=\"%s\">" %c1.qrimage)
